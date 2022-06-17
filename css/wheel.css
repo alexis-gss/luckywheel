@@ -1,0 +1,39 @@
+/* WHEEL */
+.wheel-wrapper {
+    width: 90%;
+    max-width: 40rem;
+    position: relative;
+}
+.wheel-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display : inline-block;
+    height : 0;
+    width : 0;
+    z-index: 5;
+    border-top: 70px solid black;
+    border-right: 50px solid transparent;
+    border-left: 50px solid transparent;
+}
+.wheel-circle {
+    transition: 2s transform ease;
+}
+.wheel-button {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 40%;
+    max-width: 16rem;
+    max-height: 16rem;
+    color: white;
+    background-color: black;
+    border: none;
+    font-size: xx-large;
+    font-weight: bolder;
+    border-radius: 100%;
+    cursor: pointer;
+}

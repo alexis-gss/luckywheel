@@ -1,0 +1,21 @@
+/* LEGEND */
+.legend {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+.legend-ul li {
+    cursor: pointer;
+}
+.legend-ul span {
+    border-radius: 5px;
+    display: inline-block;
+    height: 10px;
+    margin-right: 10px;
+    width: 10px;
+}
+.legend-hidden, .legend-hidden:hover {
+    text-decoration: line-through !important;
+}
