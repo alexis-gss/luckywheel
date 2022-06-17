@@ -14,7 +14,7 @@
 <body>
   <section class="position-absolute">
     <form action="./index.php" method="post" class="form d-flex flex-row justify-content-center align-items-center">
-      <input type="text" name="names" class="form-control" placeholder="name1,name2,name3..." required>
+      <input type="text" name="names" class="form-control" placeholder="name1,name2,name3..." value="<?php if (isset($_POST['names'])) { echo $_POST['names']; } ?>" required>
       <div class="input-group-append">
         <input type="submit" value="→" class="btn btn-outline-secondary">
       </div>
