@@ -9,6 +9,4 @@ if (isset($_POST['names'])) {
     </script>
     <script type="text/javascript" src="./js/main.js"></script>
 <?php
-} else {
-    $entries = [];
-};
+}
