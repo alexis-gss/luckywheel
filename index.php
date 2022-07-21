@@ -13,8 +13,8 @@
 
 <body>
   <section class="position-absolute">
-    <form action="./index.php" method="post" class="form d-flex flex-row justify-content-center align-items-center">
-      <input type="text" name="names" class="form-control" placeholder="name1,name2,name3..." value="<?php if (isset($_POST['names'])) { echo $_POST['names']; } ?>" required>
+    <form action="./index.php" method="GET" class="form d-flex flex-row justify-content-center align-items-center">
+      <input type="text" name="selection" class="form-control" placeholder="name1,name2,name3..." value="<?php if (isset($_GET['selection'])) { echo $_GET['selection']; } ?>" required>
       <div class="input-group-append">
         <input type="submit" value="→" class="btn btn-outline-secondary">
       </div>

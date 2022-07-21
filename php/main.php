@@ -1,7 +1,7 @@
 <?php
 
-if (isset($_POST['names'])) {
-    $entries = $pieces = explode(",", $_POST['names']);
+if (isset($_GET['selection'])) {
+    $entries = $pieces = explode(",", $_GET['selection']);
     include './wheel.html';
 ?>
     <script>
