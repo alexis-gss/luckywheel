@@ -29,19 +29,21 @@ const myChart = new Chart(ctx, {
     }
 });
 
-
 var text = [];
 text.push('<ul class="list-group legend-ul">');
+
 var ds = myChart.data.datasets[0];
 var sum = ds.data.reduce(function add(a, b) {
     return a + b;
 }, 0);
+
 for (var i = 0; i < ds.data.length; i++) {
     text.push('<li class="list-group-item">');
     var perc = Math.round(100 * ds.data[i] / sum, 0);
     text.push('<span style="background-color:' + ds.backgroundColor[i] + '">' + '</span>' + myChart.data.labels[i] + ' (' + perc + '%)');
     text.push('</li>');
 }
+
 text.push('</ul>');
 document.querySelector(".legend").innerHTML = text.join("");
 
@@ -65,13 +67,13 @@ function legendClickCallback(event) {
     var item = meta.data[index];
 
     if (item.hidden === true) {
-    target.classList.remove('text-danger');
-    target.classList.remove('legend-hidden');
-    item.hidden = null;
+        target.classList.remove('text-danger');
+        target.classList.remove('legend-hidden');
+        item.hidden = null;
     } else {
-    target.classList.add('text-danger');
-    target.classList.add('legend-hidden');
-    item.hidden = true;
+        target.classList.add('text-danger');
+        target.classList.add('legend-hidden');
+        item.hidden = true;
     }
     myChart.update();
 }
