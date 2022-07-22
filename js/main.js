@@ -38,7 +38,7 @@ var sum = ds.data.reduce(function add(a, b) {
 }, 0);
 
 for (var i = 0; i < ds.data.length; i++) {
-    text.push('<li class="list-group-item">');
+    text.push('<li class="list-group-item" title="Click to add/remove this name">');
     var perc = Math.round(100 * ds.data[i] / sum, 0);
     text.push('<span style="background-color:' + ds.backgroundColor[i] + '">' + '</span>' + myChart.data.labels[i] + ' (' + perc + '%)');
     text.push('</li>');
@@ -46,7 +46,6 @@ for (var i = 0; i < ds.data.length; i++) {
 
 text.push('</ul>');
 document.querySelector(".legend").innerHTML = text.join("");
-
 
 var legendItems = document.querySelector(".legend").getElementsByTagName('li');
 for (var i = 0; i < legendItems.length; i += 1) {
