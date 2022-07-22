@@ -11,23 +11,48 @@ const ctx = document.getElementById('myChart').getContext('2d');
 const myChart = new Chart(ctx, {
     type: 'pie',
     data: {
-    labels: target,
-    datasets: [{
-        data: percent,
-        backgroundColor: colors,
-        hoverOffset: 5
-    }],
+        labels: target,
+        datasets: [{
+            data: percent,
+            backgroundColor: colors,
+            hoverOffset: 5
+        }],
     },
     options: {
         events: [],
         plugins: {
             legend: {
-            display: false
+                display: false
+            },
+            labels: {
+                render: (args) => {
+                    if(args.percentage > 10){
+                        return `${args.label}`
+                    }
+                },
+                arc: true,
+                position: 'border',
+                fontSize: 20,
+                fontColor: function (data) {
+                    var rgb = hexToRgb(data.dataset.backgroundColor[data.index]);
+                    var threshold = 140;
+                    var luminance = 0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b;
+                    return luminance > threshold ? 'black' : 'white';
+                },
             },
             tooltip: false
         }
     }
 });
+
+function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null;
+}
 
 var text = [];
 text.push('<ul class="list-group legend-ul">');
